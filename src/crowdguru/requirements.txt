@@ -10,7 +10,7 @@ ipython-genutils==0.1.0
 itsdangerous==0.24
 pexpect==4.0.1
 pickleshare==0.6
-psycopg2==2.5.4
+psycopg2==2.5.4gim
 ptyprocess==0.5.1
 requests==2.9.1
 simplegeneric==0.8.1

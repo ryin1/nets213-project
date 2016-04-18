@@ -53,6 +53,9 @@ def home(request):
     print 'username:', request.user.username
     return render(request, 'home.html')
 
+
+
+
 # def register(request):
 #     if request.method == 'POST':
 #         form = UserCreationForm(request.POST)
