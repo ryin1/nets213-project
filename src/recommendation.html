@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Guru</title>
+  </script>
+  <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: white;
+    }
+    .login-box {
+      margin: 0 auto;
+    }
+    .login-box .form-control {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body align="center">
+  <h2>Provide A Recommendation</h2>
+  <br>
+  <div class="login-box">
+    <div style="float: left; width: 25%; margin-right: 5%;" align="right">
+      <p><strong>Topic</strong></p>
+	  <p><strong>Question</strong></p>
+	  <p><em>I like...</em></p>
+	</div>
+	<div style="float: left; width: 70%;" align="left">
+	  <p>[topic]</p> <!-- TODO -->
+	  <p>[question]</p> <!-- TODO -->
+	  <!-- probably use a for loop to get all the interests -->
+	  <p>[interests]</p> <!-- TODO -->
+	  <p>[interests]</p> <!-- TODO -->
+	  <p style="margin-right: 30%" align="right">asked by [username]</p> <!-- TODO -->
+	</div>
+	<br>
+    <form action="/answerquestion" id="answer" method="post">
+	  <textarea rows="6" cols="50" name="recommendation" form="answer">Recommend something!</textarea>
+      <input type="hidden" name="questionID" value="{{ id }}">
+	  <input type="submit" style="margin: 0 auto; width: 330px;" value="Make recommendation!" class="btn btn-lg btn-primary btn-block">
+    </form>
+	<br>
+	<br>
+	<h2>Recommendations</h2>
+	{% for rec in recommendations %}
+	<div style="float: left; width: 8%;" align="right">
+	  <form action="/upvote" id="answer" method="post">
+	    <input type="hidden" name="questionID" value="{{ id }}">
+		<input type="hidden" name="recID" value="{{ rec.id }}">
+        <input type="submit" style="font-size: 0.9em;"  value="Upvote">
+      </form>
+	</div>
+	<div style="float: left; width: 10%;" align="right">
+	  <form action="/downvote" id="answer" method="post">
+        <input type="hidden" name="questionID" value="{{ id }}">
+		<input type="hidden" name="recID" value="{{ rec.id }}">
+		<input type="submit" style="font-size: 0.9em;"  value="Downvote">
+      </form>
+	</div>
+	<div style="float: left; width: 8%; margin-right: 2%;" align="right">
+	  <!-- display net voting -->
+	  <p>rec.upvotes - rec.downvotes</p>
+	</div>
+	<div style="float: left; width: 20%;" align="left">
+	  <!-- username -->
+	  <p>rec.username</p>
+	</div>
+	<div style="float: left; width: 40%;" align="left">
+	  <!-- actual recommendation -->
+	  <p>rec.recommendation</p>
+	</div>
+	<div style="float: left; width: 10%; margin-right: 2%;" align="left">
+	  <form action="/spam" id="answer" method="post">
+        <input type="hidden" name="questionID" value="{{ id }}">
+		<input type="hidden" name="recID" value="{{ rec.id }}">
+		<input type="submit" style="font-size: 0.75em;" value="Mark as spam">
+      </form>
+	</div>
+	{% endfor %}
+  </div>
+</body>
+</html>
+
