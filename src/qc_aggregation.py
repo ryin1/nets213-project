@@ -32,6 +32,8 @@ def add_recommendation(question, recommendation):
     '''Aggregation: adding a recommendation to question'''
     question['recommendation_ids'].append(recommendation['id'])
 
+def add_to_news_feed(question, news_feed):
+    news_feed.append(question)
 
 def upvote(post, user):
     '''user: user who upvoted the post
