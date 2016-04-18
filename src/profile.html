@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crowd Guru</title>
+  <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: white;
+      position: relative;
+    }
+    .login-box {
+      max-width: 330px;
+      margin: 0 auto;
+    }
+    .login-box .form-control {
+      margin-bottom: 10px;
+    }
+    #right {
+      position: absolute;
+      top: 40px;
+      right: 100px;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 0;
+    }
+
+    ul li {
+      list-style-position: inside;
+    }
+  </style>
+</head>
+<body align="center">
+  <!--
+  <h1>Display user's username</h1>
+  -->
+  <br>
+  <div id="wrapper">
+    <div id="center">
+      <div class="login-box">
+        <form action="/questions" method="post">
+          <input type="submit" value="Ask A Question" class="btn btn-lg btn-primary btn-block">
+        </form>
+      </div>
+      <br>
+      <h4><a href="/logout">Log Out</a></h4>
+    </div>
+    <div id="right">
+      <h3>Unresolved Questions</h3>
+        <ul class="a">
+          <li><a href=""> Question 1 </a></li>
+          <li><a href=""> Question 2 </a></li>
+          <li><a href=""> Question 3 </a></li>
+        </ul>
+      <!-- {% for question in question_list %}
+      <li><a href='{{ question.URL }}'>{{ question.Title }}</a></li>
+      {% endfor %}
+      -->
+    </div>
+  </div>
+</body>
+</html>
