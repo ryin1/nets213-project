@@ -2,7 +2,8 @@
 
 We created a web application that allows the crowd to provide recommendations for any question a user might have. We first describe our webapp and how to use it/access its different components. Then we explain what we would like you--the user--to do to contribute and who to contact if you run into issues with the webapp not working or if you have any questions, comments, or concerns.
 
-You can visit the webapp here: 
+You can visit the webapp here: https://crowd-guru.herokuapp.com/
+
 Once you follow the link, you should find yourself on a Login page with the option to Sign Up.
 
 # Access and Use
@@ -29,7 +30,7 @@ The Recommendation page shows a single question and the chain of existing recomm
 
 The following is a step-by-step guide to walk you through what we would like you to do.
 
-1. Visit the webapp here: 
+1. Visit the webapp here: https://crowd-guru.herokuapp.com/
 2. On the Login page, sign up with a username and password. You will be taken to your Profile page.
 3. On the Profile page, click the "Ask A Question" button. You will be taken to the Question page.
 4. You are now going to submit a question! On the Question page, provide a question category, your question, and at least one of your relevant interests. Feel free to add as many interests as you'd like. Click "Ask!" You will now find yourself on the Recommendation page for your question.
@@ -52,7 +53,9 @@ Thank you for your contributions!
 If you run into any issues or have any questions, feel free to contact any of us by email. You will probably get the quickest response if you CC all of us on one email. Thanks for contributing to our project!
 
 John Meng: mengj@sas.upenn.edu
+
 Neil Wei: neilwei@seas.upenn.edu
+
 Raymond Yin: ryin@seas.upenn.edu
 
 
