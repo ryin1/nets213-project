@@ -36,19 +36,41 @@ class Question(models.Model):
     description = models.TextField()
     category = models.ForeignKey(Category)
     created_at = models.DateTimeField(default=timezone.now)
-    upvotes = models.IntegerField()
-    downvotes = models.IntegerField()
+    # upvotes = models.IntegerField()
+    # downvotes = models.IntegerField()
     preferences = models.CharField(max_length=1000) # JSON list of strings
     tags = models.CharField(max_length=500) # JSON list of strings
     is_resolved = models.BooleanField()
-    spam_counts = models.IntegerField()
+    # spam_counts = models.IntegerField()
+
+    def get_absolute_url(self):
+        return '/question/%i' % self.id
 
 class Recommendation(models.Model):
     question = models.ForeignKey(Question)
     created_at = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User)
     recommendation = models.TextField()
-    upvotes = models.IntegerField()
-    downvotes = models.IntegerField()
-    spam_counts = models.IntegerField()
+    # upvotes = models.IntegerField()
+    # downvotes = models.IntegerField()
+    # spam_counts = models.IntegerField()
     is_star = models.BooleanField()
+
+
+class QuestionVote(models.Model):
+    user = models.ForeignKey(User)
+    question = models.ForeignKey(Question)
+    value = models.IntegerField() # either -1 or 1
+
+class RecommendationVote(models.Model):
+    user = models.ForeignKey(User)
+    recommendation = models.ForeignKey(Recommendation)
+    value = models.IntegerField() # either -1 or 1
+
+class QuestionSpamVote(models.Model):
+    user = models.ForeignKey(User)
+    question = models.ForeignKey(Question)
+
+class RecommendationSpamVote(models.Model):
+    user = models.ForeignKey(User)
+    recommendation = models.ForeignKey(Recommendation)

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body align="center">
+  
+  {% if username %}
+    <h1>{{ username }}'s Profile</h1>
+  {% else %}
+    <h1>Hello, {{ request.user.username }}</h1>
+  {% endif %}
+  
+  <br>
+  <div id="wrapper">
+    <div style="float: left; width: 60%" id="center">
+      <div class="login-box">
+        <form action="/ask_question" method="get">
+          <input type="submit" value="Ask A Question" class="btn btn-lg btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+    <div style="float: left; width: 40%" id="right">
+      <h3>Unresolved Questions</h3>
+<!--       <div style="float: left; width: 20%">
+      <ul style="list-style-type: none">
+            <li>7</li>
+            <li>13</li>
+            <li>-1</li>
+          </ul>
+    </div> -->
+    <div style="float: left; width: 80%" align="left">
+      <ul>
+      {% for question in questions %}
+        <li>{{question.votes}} | <a href="/question/{{question.id}}">{{question.title}}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+      <!-- {% for question in question_list %}
+    <li>question.upvotes - question.downvotes</li>
+      <li><a href="{{ question.URL }}">{{ question.Title }}</a></li>
+      {% endfor %}
+      -->
+    </div>
+  </div>
+  <br>
+  
+</body>
+
+{% endblock %}
