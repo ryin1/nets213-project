@@ -64,8 +64,8 @@ def show_user(request, id):
 
 def profile(request):
     if not request.user.is_authenticated():
-        redirect('index')
-    context = {'questions': [{'votes': sum(x.value for x in question.questionvote_set.all()), 'title': question.title, 'description':question.description, 'category': question.category.name, 'created_at': question.created_at, 'id': question.id} for question in Question.objects.all()]}
+        return redirect('index')
+    context = {'questions': sorted([{'votes': sum(x.value for x in question.questionvote_set.all()), 'title': question.title, 'description':question.description, 'category': question.category.name, 'created_at': question.created_at, 'id': question.id} for question in Question.objects.all()], key=lambda x: x['votes'], reverse=True)}
     return render(request, 'profile.html', context)
 
 def show_question(request, id):
@@ -84,6 +84,7 @@ def show_question(request, id):
         spam_votes = len(r.recommendationspamvote_set.all())
         if spam_votes <= 5:
             recommendations.append({'created_at': r.created_at, 'spam_counts': spam_votes, 'is_star': r.is_star, 'id': r.id, 'author': {'username': r.author.username, 'id': r.author.id}, 'recommendation': r.recommendation, 'net_votes': votes})
+    recommendations.sort(key=lambda x: x['net_votes'], reverse=True)
     # embed()
     votes = sum(x.value for x in question.questionvote_set.all())
     spam_votes = len(question.questionspamvote_set.all())
@@ -189,6 +190,15 @@ def add_recommendation(request):
         recommendation = Recommendation(question=question, author=author, recommendation=recommendation_text, is_star=False)
         recommendation.save()
     return redirect(question)
+
+
+def export_questions(request):
+    data = []
+    for question in Question.objects.all():
+        net_votes = sum(x.value for x in question.questionvote_set.all())
+        num_recommendations = len(question.recommendation_set.all())
+        data.append((net_votes, num_recommendations))
+    return render(request, 'export.html', {'data': data})
 
 
 # def register(request):

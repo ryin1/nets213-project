@@ -15,8 +15,10 @@
     </a>
   </div>
   <div class="container">
+    {% if request.user.is_authenticated %}
     <a class="navbar-brand" href="/profile/">Profile</a>
     <a class="navbar-brand" href="/logout/">Log Out</a>
+    {% endif %}
   </div>
 </nav>
 

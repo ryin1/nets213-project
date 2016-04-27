@@ -9,13 +9,15 @@ NETS 213 Final Project
 - Questions
     - Asked by users
     - Have topics
-    - Can be upvoted/downvoted
+    - Can be upvoted/downvoted (only once per each user)
+    - Can mark as spam (only once per each user)
 - Recommendations
     - Provided by other users
-    - Can be upvoted/downvoted by other users
+    - Can be upvoted/downvoted by other users (only once per each user)
+    - Can mark as spam (only once per each user)
     - Original asker can select best answer/recommendation
 - Aggregation
-    - Upvote/downvote system to organize recommendations
+    - Upvote/downvote system to organize recommendations (only once per each user)
     - sort recommendations from highest to lowest net votes (upvotes - downvotes)
 - Quality Control (spam)
     - Users can mark questions or recommendations as spam

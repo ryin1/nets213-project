@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^login/$', views.log_in, name='login'),
     url(r'^logout/$', views.log_out, name='logout'),
     url(r'^profile/$', views.profile, name='profile'),
-    url(r'^profile/(?P<id>[0-9]+)/$', views.show_user, name='user show'),
+    url(r'^user/(?P<id>[0-9]+)/$', views.show_user, name='user show'),
     url(r'^question/(?P<id>[0-9]+)/$', views.show_question, name='question show'),
     url(r'^ask_question/$', views.show_ask_question, name='ask question'),
     url(r'^post_question/$', views.post_question, name='post question'),
@@ -19,4 +19,8 @@ urlpatterns = [
     url(r'^downvote_recommendation/$', views.downvote_recommendation, name='downvote recommendation'),
     url(r'^spam_question/$', views.spam_question, name='spam question'),
     url(r'^spam_recommendation/$', views.spam_recommendation, name='spam recommendation'),
+
+
+    # analysis
+    url(r'^export_questions/$', views.export_questions, name='export question'),
 ]
