@@ -2,7 +2,8 @@
 
 We created a web application that allows the crowd to provide recommendations for any question a user might have. We first describe our webapp and how to use it/access its different components. Then we explain what we would like you--the user--to do to contribute and who to contact if you run into issues with the webapp not working or if you have any questions, comments, or concerns.
 
-You can visit the webapp here: 
+You can visit the webapp here: https://crowd-guru.herokuapp.com/
+
 Once you follow the link, you should find yourself on a Login page with the option to Sign Up.
 
 # Access and Use
@@ -19,7 +20,7 @@ On your Profile page you will see two sections, splitting the page into left and
 
 ### Question Page
 
-The Question page allows you to ask a question and seek recommendations from the crowd. You will see three default fields. The first one is the Category. You should complete this field with a general term or phrase describing the category of your question (i.e. Movies, Music, Fashion, Food, Books, etc.). The second field is the Question. This is where you will type out your full question (i.e. What movie should I watch tonight?). The third field is the Interests field. This is where you can specify your interests (i.e. The Notebook) so that the crowd can provide you with more accurate recommendations. Each Interests field should represent one interest. If you'd like to specify more interests, simply click the "Add another interest" button and another Interests field will appear. When you have completed each of these fields, click the "Ask!" button and your question will be submitted and made available to other users so that they can provide recommendations for you.
+The Question page allows you to ask a question and seek recommendations from the crowd. You will see three default fields. The first one is the Category. You should complete this field with a general term or phrase describing the category of your question (i.e. Movies, Music, Fashion, Food, Books, etc.). The second field is the Title. This is where you will type out your question (i.e. What movie should I watch tonight?). The third field is the Description field. This is where you can elaborate on your question (i.e. I like plot twists.). The fourth field is the Interests field. This is where you can specify your interests (i.e. The Prestige) so that the crowd can provide you with more accurate recommendations. Each Interests field should represent one interest. If you'd like to specify more interests, simply click the "Add another interest" button and another Interests field will appear. When you have completed each of these fields, click the "Ask!" button and your question will be submitted and made available to other users so that they can provide recommendations for you.
 
 ### Recommendation Page
 
@@ -29,7 +30,7 @@ The Recommendation page shows a single question and the chain of existing recomm
 
 The following is a step-by-step guide to walk you through what we would like you to do.
 
-1. Visit the webapp here: 
+1. Visit the webapp here: https://crowd-guru.herokuapp.com/
 2. On the Login page, sign up with a username and password. You will be taken to your Profile page.
 3. On the Profile page, click the "Ask A Question" button. You will be taken to the Question page.
 4. You are now going to submit a question! On the Question page, provide a question category, your question, and at least one of your relevant interests. Feel free to add as many interests as you'd like. Click "Ask!" You will now find yourself on the Recommendation page for your question.
@@ -52,7 +53,9 @@ Thank you for your contributions!
 If you run into any issues or have any questions, feel free to contact any of us by email. You will probably get the quickest response if you CC all of us on one email. Thanks for contributing to our project!
 
 John Meng: mengj@sas.upenn.edu
+
 Neil Wei: neilwei@seas.upenn.edu
+
 Raymond Yin: ryin@seas.upenn.edu
 
 
