@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<style type="text/css">
+    h2 {
+      font-family: "Arial";
+      font-weight: lighter;
+    }
+    ul {
+      list-style-position: inside;
+    }
+    li {
+       font-family: "Arial"; 
+    }
+</style>
+{% block content %}
+<body align="center">
+  <br>
+    <div>
+      <h2>All Unresolved Questions</h2>
+      <div>
+        <ul>
+        {% for question in questions %}
+        <!--
+        TODO: implement category label on the left hand side of question
+        -->
+          <li>{{question.votes}} | <a href="/question/{{question.id}}">{{question.title}}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  <br>
+</body>
+{% endblock %}
