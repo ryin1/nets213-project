@@ -12,9 +12,27 @@
   <br>
   <div id="wrapper">
     <div style="float: left; width: 60%" id="center">
+	  <h3>Profile Information</h3>
+	  <p>First Name: {{ request.user.firstname }}</p>
+	  <p>Last Name: {{ request.user.lastname }}</p>
+	  <p>Email: {{ request.user.email }}</p>
+	  <p>Location: {{ request.user.location }}</p>
+	  <p>Birthday: {{ request.user.birthday(format:YYYY-MM-DD) }}</p>
+	  <p>Interests: {{ request.user.interests }}</p>
+	  <br>
       <div class="login-box">
         <form action="/ask_question" method="get">
           <input type="submit" value="Ask A Question" class="btn btn-lg btn-primary btn-block">
+        </form>
+      </div>
+	  <div class="login-box">
+        <form action="/browse_questions" method="get">
+          <input type="submit" value="Browse All Questions" class="btn btn-lg btn-primary btn-block">
+        </form>
+      </div>
+	  <div class="login-box">
+        <form action="/update_profile" method="get">
+          <input type="submit" value="Update Profile" class="btn btn-lg btn-primary btn-block">
         </form>
       </div>
     </div>
