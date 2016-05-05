@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body align="center">
+  <h1>Update Profile</h1>
+  <div class="login-box">
+    <form action="/profile/update/" method="post">
+    {% csrf_token %}
+      <p>Please fill out the following information:</p>
+      <label class="control-label">First Name</label>
+      <input type="text" name="firstname" size="20" class="form-control" value="{{ details.firstname }}" placeholder="First Name">
+
+      <label class="control-label">Last Name</label>
+      <input type="text" name="lastname" size="20" class="form-control" value="{{ details.lastname }}" placeholder="Last Name">
+
+      <label class="control-label">Email</label>
+      <input type="text" name="email" size="20" class="form-control" value="{{ details.email }}" placeholder="Email">
+
+      <label class="control-label">Bio</label>
+      <textarea  name="bio" class="form-control" rows="5" id="bio" value="{{ details.bio }}" placeholder="Bio"></textarea>
+
+      <label class="control-label">Location</label>
+      <input type="text" name="location" size="20" class="form-control" value="{{ details.location }}" placeholder="Location">
+
+      <label class="control-label">Birthday</label>
+      <input type="date" name="birthday" size="20" class="form-control">
+
+      <label class="control-label">Interests</label>
+      <input type="text" name="interests" size="20" class="form-control" value="{{ interests }}" placeholder="List of Interests">
+      <input type="submit" value="Update" class="btn btn-lg btn-primary btn-block">
+    </form>
+  </div>
+</body>
+
+{% endblock %}
+

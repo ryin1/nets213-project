@@ -1,38 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>CrowdGuru</title>
-  <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style type="text/css">
-    body {
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: white;
-    }
-    .login-box {
-      max-width: 330px;
-      margin: 0 auto;
-    }
-    .login-box .form-control {
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body align="center">
-  <h1>Top Gurus</h1>
-  <div>
-    {% for group in results %}
-    <div style="margin-left: 5%; float: left; width: 20%;" align="left">
-	  <h3>insert category</h3>
-	  <ol>
-	    {% for result in group %}
-		<li>insert top 5 users with links to profiles</li>
-		{% endfor %}
-	  </ol>
-	</div>
-	{% endfor %}
-  </div>
-</body>
-</html>
+{% extends 'base.html' %}
 
+{% block content %}
+<body align="center">
+  <h1>Top Gurus (by Reputation)</h1>
+  {% for result in results %}
+  <div style="min-height: 200px">
+    {% for group in result %}
+    <div style="margin-left: 5%; float: left; width: 20%;" align="left">
+    <h3>{{group.category}}</h3>
+    <ol>
+    {% for user, points in group.users %}
+      <li><a href="/user/{{user.id }}">{{ user.username }}</a>: {{points}} </li>
+    {% endfor %}
+    </ol>
+  </div>
+  {% endfor %}
+  </div>
+  {% endfor %}
+</body>
+{% endblock %}

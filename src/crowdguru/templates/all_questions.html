@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body align="center">
+  <br>
+    <div style="float: left; width: 60%" id="right">
+      <h3>Unresolved Questions</h3>
+      <div style="float: left; width: 80%" align="left">
+        <ul>
+        {% load humanize %}
+        {% for question in questions %}
+          <li><span class="label label-success label-as-badge">{{question.votes}}</span> <span class="label label-default">{{question.category}}</span> <a href="/question/{{question.id}}">{{question.title}}</a>
+          <br>
+          <small> asked by <a href="/user/{{question.author.id}}">{{question.author.username}}</a> {{question.created_at|naturaltime}}</small></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  <br>
+</body>
+
+{% endblock %}

@@ -6,37 +6,59 @@
   {% if username %}
     <h1>{{ username }}'s Profile</h1>
   {% else %}
-    <h1>Hello, {{ request.user.username }}</h1>
+    <h1>Hello, {{ request.user.username }}!</h1>
   {% endif %}
   
   <br>
   <div id="wrapper">
-    <div style="float: left; width: 60%" id="center">
-	  <h3>Profile Information</h3>
-	  <p>First Name: {{ request.user.firstname }}</p>
-	  <p>Last Name: {{ request.user.lastname }}</p>
-	  <p>Email: {{ request.user.email }}</p>
-	  <p>Location: {{ request.user.location }}</p>
-	  <p>Birthday: {{ request.user.birthday(format:YYYY-MM-DD) }}</p>
-	  <p>Interests: {{ request.user.interests }}</p>
-	  <br>
-      <div class="login-box">
-        <form action="/ask_question" method="get">
-          <input type="submit" value="Ask A Question" class="btn btn-lg btn-primary btn-block">
-        </form>
-      </div>
-	  <div class="login-box">
-        <form action="/browse_questions" method="get">
-          <input type="submit" value="Browse All Questions" class="btn btn-lg btn-primary btn-block">
-        </form>
-      </div>
-	  <div class="login-box">
-        <form action="/update_profile" method="get">
+    <div style="float: left; width: 40%" id="center">
+    <h3>Profile Information</h3>
+    {% if details.firstname %}
+    <p><b>First Name</b>: {{ details.firstname }}</p>
+    {% endif %}
+    {% if details.lastname %}
+    <p><b>Last Name</b>: {{ details.lastname }}</p>
+    {% endif %}
+    {% if details.email %}
+    <p><b>Email</b>: {{ details.email }}</p>
+    {% endif %}
+    {% if details.bio %}
+    <p><b>Bio</b>: {{ details.bio }}</p>
+    {% endif %}
+    {% if details.location %}
+    <p><b>Location</b>: {{ details.location }}</p>
+    {% endif %}
+    {% if details.birthday %}
+    <p><b>Birthday</b>: {{ details.birthday }}</p>
+    {% endif %}
+    {% if interests %}
+    <p><b>Interests</b>: {{ interests }}</p>
+    {% endif %}
+    <br>
+    <div class="login-box">
+      <form action="/ask_question/" method="get">
+        <input type="submit" value="Ask A Question" class="btn btn-lg btn-primary btn-block">
+      </form>
+    </div>
+    <div class="login-box">
+      <form action="/all_questions/" method="get">
+        <input type="submit" value="Browse All Questions" class="btn btn-lg btn-primary btn-block">
+      </form>
+    </div>
+    <div class="login-box">
+      <form action="/leaderboards/" method="get">
+        <input type="submit" value="Leaderboards" class="btn btn-lg btn-primary btn-block">
+      </form>
+    </div>
+    <div class="login-box">
+        <form action="/profile/edit/" method="get">
           <input type="submit" value="Update Profile" class="btn btn-lg btn-primary btn-block">
         </form>
       </div>
     </div>
-    <div style="float: left; width: 40%" id="right">
+    </div>
+    {% if questions %}
+    <div style="float: left; width: 60%" id="right">
       <h3>Unresolved Questions</h3>
 <!--       <div style="float: left; width: 20%">
       <ul style="list-style-type: none">
@@ -47,8 +69,11 @@
     </div> -->
     <div style="float: left; width: 80%" align="left">
       <ul>
+      {% load humanize %}
       {% for question in questions %}
-        <li>{{question.votes}} | <a href="/question/{{question.id}}">{{question.title}}</a></li>
+        <li><span class="label label-success label-as-badge">{{question.votes}}</span> <span class="label label-default">{{question.category}}</span> <a href="/question/{{question.id}}">{{question.title}}</a>
+        <br>
+        <small> asked by <a href="/user/{{question.author.id}}">{{question.author.username}}</a> {{question.created_at|naturaltime}}    |    {{question.num_recs}} recommendations</small></li>
       {% endfor %}
       </ul>
     </div>
@@ -58,6 +83,7 @@
       {% endfor %}
       -->
     </div>
+    {% endif %}
   </div>
   <br>
   
