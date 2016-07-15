@@ -1,5 +1,5 @@
 *.pyc
-crowdguru/db.sqlite3
 crowdguru/venv
 __pycache__
 crowdguru/crowdguru/local_settings.py
+*.sqlite3
